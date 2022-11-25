@@ -1,0 +1,1 @@
+export type ILineJoin = "bevel" | "miter" | "round" | "undefined";

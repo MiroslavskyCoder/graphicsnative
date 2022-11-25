@@ -1,0 +1,1 @@
+export type ILineCap = "butt" | "round" | "square" | "undefined";

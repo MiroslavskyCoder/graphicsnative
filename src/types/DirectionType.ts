@@ -1,0 +1,1 @@
+export type IDirectionType = "left_to_right" | "right_to_left" | "undefined";

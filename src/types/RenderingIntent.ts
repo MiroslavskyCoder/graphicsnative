@@ -1,0 +1,1 @@
+export type IRenderingIntent = "absolute" | "perceptual" | "relative" | "saturation" | "undefined";

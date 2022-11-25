@@ -1,0 +1,1 @@
+export type IPixelMask = "composite" | "read" | "write" | "undefined";

@@ -1,0 +1,1 @@
+console.log(process.env.PATH_IMAGEMAGICK_SOURCE || "");

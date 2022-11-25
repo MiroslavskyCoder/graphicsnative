@@ -1,0 +1,1 @@
+export type IPixelTrait = "blend" | "copy" | "undefined" | "update";

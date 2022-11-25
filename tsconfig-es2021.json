@@ -1,0 +1,9 @@
+{ 
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"target": "ES2021",
+		"module": "ESNext",
+		"lib": ["ES2021", "DOM", "ESNext"],
+		"moduleResolution": "Node"
+	}
+} 

@@ -1,0 +1,1 @@
+export type IStyleType = "any" | "bold" | "italic" | "normal" | "oblique" | "undefined";

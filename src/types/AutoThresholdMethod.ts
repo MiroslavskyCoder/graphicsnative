@@ -1,0 +1,1 @@
+export type IAutoThresholdMethod = "kapur_threshold" | "otsu_threshold" | "triangle_threshold" | "undefined_threshold";

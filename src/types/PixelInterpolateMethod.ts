@@ -1,0 +1,1 @@
+export type IPixelInterpolateMethod = "average16" | "average9" | "average" | "background" | "bilinear" | "blend";

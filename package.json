@@ -1,0 +1,74 @@
+{
+  "name": "@bymiroslavsky/graphicsnative",
+  "version": "0.2.0",
+  "description": "GraphicsNative for ImageMagick",
+  "main": "lib/es2022/index.js",
+  "module": "lib/es2022/index.mjs",
+  "typings": "lib/es2022/index.d.ts",
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build",
+    "docs": "jsdoc -c jsdoc.json",
+    "build:ts": "rollup -c rollup.config.js --bundleConfigAsCjs",
+    "build": "node-pre-gyp rebuild",
+    "package": "node-pre-gyp package",
+    "test": "mocha --file \"./tests/index.js\""
+  },
+  "author": "MiroslavskyDev",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@rollup/plugin-json": "^5.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "better-docs": "^2.7.2",
+    "cross-env": "^7.0.3",
+    "jsdoc": "^4.0.0",
+    "mocha": "^10.1.0",
+    "nan": "^2.17.0",
+    "node-pre-gyp-github": "^1.4.4",
+    "rollup": "^3.4.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-uglify-es": "^0.0.1",
+    "taffydb": "^2.7.3"
+  },
+  "files": [
+    "source",
+    "scripts",
+    "include",
+    "lib",
+    "tests",
+    "binding.gyp",
+    "README.md"
+  ],
+  "keywords": [
+    "image",
+    "binding",
+    "ImageMagick",
+    "graphicsnative",
+    "bymiroslavsky"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiroslavskyCoder/graphicsnative.git"
+  },
+  "dependencies": {
+    "@mapbox/node-pre-gyp": "^1.0.10",
+    "mocha-logger": "^1.0.8",
+    "npmlog": "^7.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/MiroslavskyCoder/graphicsnative/issues"
+  },
+  "homepage": "https://miroslavskycoder.github.io/graphicsnative",
+  "gypfile": true,
+  "binary": {
+    "module_name": "GraphicsNative",
+    "module_path": "./napi",
+    "host": "https://github.com/MiroslavskyCoder/graphicsnative/releases/download/",
+    "remote_path": "v0.2.0"
+  }
+}

@@ -1,0 +1,1 @@
+export type IFillRule = "even_odd" | "non_zero" | "undefined";

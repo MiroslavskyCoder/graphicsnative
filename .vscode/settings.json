@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "deque": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "exception": "cpp",
+        "functional": "cpp",
+        "memory": "cpp",
+        "optional": "cpp",
+        "variant": "cpp",
+        "iosfwd": "cpp",
+        "locale": "cpp"
+    }
+}

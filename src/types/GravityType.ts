@@ -1,0 +1,1 @@
+export type IGravityType = "center" | "east" | "forget" | "north_east" | "north" | "north_west" | "south_east" | "south" | "south_west" | "undefined" | "west";

@@ -1,0 +1,1 @@
+export type IClassType = "undefined" | "pseudo" | "direct";
