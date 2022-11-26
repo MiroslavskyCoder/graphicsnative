@@ -138,14 +138,15 @@ import {
 } from "./types";
 import { Pos } from "./util/Pos"; 
 import { Geometry } from "./util/Geometry";
-import { Color } from "./util/Color";  
+import { Color } from "./util/Color"; 
 
 export function createRequire() {
     return Module.createRequire(path.dirname(import.meta.url));
 }
-
-const _require = createRequire();
-const binding = _require("./build/Release/GraphicsNative.node"); 
+  
+const requireNative = createRequire();
+ 
+const binding = requireNative("./napi/GraphicsNative.node"); 
 
 /**
  * @class

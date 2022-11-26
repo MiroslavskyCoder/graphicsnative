@@ -110,23 +110,17 @@
     <section>
         <article><h1>@bymiroslavsky/graphicsnative</h1>
 <h2><em>GraphicsNative for ImageMagick</em></h2>
-<h3>Build ImageMagick</h3>
-<h2>Linux</h2>
-<pre class="prettyprint source lang-sh"><code>sudo apt-get install autoconf automake autotools-dev libtool pkg-config build-essential libcairo2-dev libpango1.0-dev libgif-dev librsvg2-dev libpng-dev libraw-dev libjpeg-dev zlib1g-dev libpng-dev libopenexr-dev openexr
-git clone https://github.com/ImageMagick/ImageMagick.git ImageMagick-7.1.0
-cd ImageMagick-7.1.0
-./configure --with-modules
-make
-make install
-sudo ldconfig /usr/local/lib
-</code></pre>
-<h2>Windows install ImageMagick</h2>
-<h3>https://github.com/ImageMagick/ImageMagick-Windows</h3>
-<h3>or</h3>
-<h3>https://imagemagick.org/archive/binaries/ImageMagick-7.1.0-52-Q16-HDRI-x64-dll.exe</h3>
-<h3>Install package</h3>
+<h3>Install</h3>
+<ul>
+<li>NPM</li>
+</ul>
 <pre class="prettyprint source lang-sh"><code>npm install --build-from-source
 npm install --save @bymiroslavsky/graphicsnative
+</code></pre>
+<ul>
+<li>YARN</li>
+</ul>
+<pre class="prettyprint source lang-sh"><code>yarn add @bymiroslavsky/graphicsnative
 </code></pre></article>
     </section>
 
