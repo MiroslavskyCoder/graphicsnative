@@ -1,6 +1,6 @@
 {
   "name": "@bymiroslavsky/graphicsnative",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "GraphicsNative for ImageMagick",
   "main": "lib/es2022/index.js",
   "module": "lib/es2022/index.mjs",
@@ -9,7 +9,7 @@
     "install": "node-pre-gyp install --fallback-to-build",
     "docs": "jsdoc -c jsdoc.json",
     "build:ts": "rollup -c rollup.config.js --bundleConfigAsCjs",
-    "build": "node-pre-gyp rebuild",
+    "build": "mkdirp napi && node-pre-gyp rebuild",
     "package": "node-pre-gyp package",
     "test": "mocha --file \"./tests/index.js\""
   },
@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.10",
+    "mkdirp": "^1.0.4",
     "mocha-logger": "^1.0.8",
     "npmlog": "^7.0.1"
   },
