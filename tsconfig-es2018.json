@@ -1,9 +1,0 @@
-{ 
-	"extends": "./tsconfig.json",
-	"compilerOptions": {
-		"target": "ES2018",
-		"module": "ESNext",
-		"lib": ["ES2018", "DOM", "ESNext"],
-		"moduleResolution": "Node"
-	}
-} 
