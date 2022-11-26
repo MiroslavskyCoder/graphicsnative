@@ -46,12 +46,11 @@ import { Geometry } from "./util/Geometry";
 import { Color } from "./util/Color"; 
 
 export function createRequire() {
-    return Module.createRequire(path.dirname(import.meta.url));
-}
-  
-const requireNative = createRequire();
- 
-const binding = requireNative("./napi/GraphicsNative.node"); 
+    return Module.createRequire(import.meta.url);
+} 
+
+const requireNative = createRequire(); 
+const binding = requireNative(path.resolve("napi", "GraphicsNative.node"));
 
 /**
  * @class
