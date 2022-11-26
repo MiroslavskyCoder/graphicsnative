@@ -14,7 +14,7 @@ import { tmpdir } from 'os';
 import { builtinModules } from 'module';
 import { join as pathJoin } from 'path';
 
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'prod';
 const coreModules = builtinModules.filter(name => !/(^_|\/)/.test(name));
 const cacheRoot = pathJoin(tmpdir(), '.rpt2_cache');
 
@@ -33,13 +33,7 @@ function makePathOutput(target = "cjs") {
         {
             file: pathJoin("lib", target, 'index.mjs'),
             format: "esm"
-        },
-        {
-            file: pathJoin("lib", target, 'index.umd.js'),
-            format: 'umd',
-            sourcemap: true,
-            name: "graphicsnative"
-        }
+        } 
     ];
 }
 
@@ -48,15 +42,16 @@ const input = pathJoin("src", 'index.ts');
 const pluginsCommon = [
     babel(), 
     resolve({ 
-        extensions: [ ".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs" ] 
+        extensions: [ ".ts" ] 
     }),  
     jsonPlugin(),
-    commonjs(),   
+    commonjs(),  
     sourceMaps(), 
     replace({
         exclude: 'node_modules/**',
         'process.env.NODE_ENV': JSON.stringify(env),
-    })
+    }),
+    terser()
 ]
 
 const external = [
