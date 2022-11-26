@@ -2,9 +2,9 @@
   "name": "@bymiroslavsky/graphicsnative",
   "version": "0.2.2",
   "description": "GraphicsNative for ImageMagick",
-  "main": "lib/es2022/index.js",
-  "module": "lib/es2022/index.mjs",
-  "typings": "lib/es2022/index.d.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "typings": "lib/index.d.ts",
   "scripts": {
     "install": "node-pre-gyp install --fallback-to-build",
     "docs": "jsdoc -c jsdoc.json",
