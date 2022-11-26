@@ -45,12 +45,14 @@ import { Pos } from "./util/Pos";
 import { Geometry } from "./util/Geometry";
 import { Color } from "./util/Color"; 
 
+const dirnameNative = import.meta.url; 
+
 export function createRequire() {
-    return Module.createRequire(import.meta.url);
+    return Module.createRequire(path.dirname(dirnameNative));
 } 
 
 const requireNative = createRequire(); 
-const binding = requireNative(path.resolve("napi", "GraphicsNative.node"));
+const binding = requireNative("./napi/GraphicsNative.node");
 
 /**
  * @class
