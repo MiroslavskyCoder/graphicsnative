@@ -266,7 +266,7 @@
                                 "scripts/applocal.ps1"
                             ],
                             "outputs": [
-                                "<(PRODUCT_DIR)/<(module_name).node"
+                                "<(DIR_NAPI_OUTPUT)/<(module_name).node"
                             ],
                             "action": [
                                 "powershell -ExecutionPolicy Bypass -noprofile -File \"../scripts/applocal.ps1\" \"../<(DIR_NAPI_OUTPUT)/<(module_name).node\" \"<(MAGICK_VISUAL_ROOT)/bin\""
