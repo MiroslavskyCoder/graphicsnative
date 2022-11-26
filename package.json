@@ -70,6 +70,6 @@
     "module_name": "GraphicsNative",
     "module_path": "./napi",
     "host": "https://github.com/MiroslavskyCoder/graphicsnative/releases/download/",
-    "remote_path": "v0.2.0"
+    "remote_path": "v0.2.1"
   }
 }
