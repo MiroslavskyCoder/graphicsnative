@@ -1,6 +1,6 @@
 {
   "name": "@bymiroslavsky/graphicsnative",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "GraphicsNative for ImageMagick",
   "main": "lib/index.js",
   "module": "lib/index.mjs",
@@ -70,7 +70,7 @@
     "module_name": "GraphicsNative",
     "module_path": "./napi",
     "host": "https://github.com/MiroslavskyCoder/graphicsnative/releases/download/",
-    "remote_path": "v0.2.4",
+    "remote_path": "v0.2.5",
     "package_name": "{module_name}-v{version}-{node_abi}-{platform}-{arch}.tar.gz"
   }
 }
