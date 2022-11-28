@@ -15,9 +15,15 @@
                     "type": "none",
                     "actions": [
                         {
+                            "inputs": [
+                                "scripts/cloneImageMagick.js"
+                            ],
+                            "outputs": [
+                                "deps_image_magick"
+                            ],
                             "action_name": "ImageMagick",
                             "action": [
-                                "git clone https://github.com/ImageMagick/ImageMagick.git deps/ImageMagick" 
+                                "node", "scripts/cloneImageMagick.js" 
                             ]
                         }
                     ]
@@ -32,6 +38,10 @@
                 'include',
                 "<!(node -e \"require('nan')\")",
             ], 
+            "defines": [
+                "MAGICKCORE_HDRI_ENABLE=1",
+                "MAGICKCORE_QUANTUM_DEPTH=16"
+            ],
             "sources": [ 
                 "source/binding.cc",
                 "source/EffectsNative.cc",
@@ -231,15 +241,20 @@
                         },
                     } 
                 }], 
-                ['OS=="linux"', {
-                    'libraries': [
-                        '<!@(pkg-config Magick++ --libs)'
-                    ],
+                ['OS=="linux"', { 
                     'include_dirs': [
-                        '<!@(pkg-config Magick++ --cflags-only-I | sed s/-I//g)', 
+                        "deps_image_magick",
+                        "deps_image_magick/Magick++/lib",
+                        "deps_image_magick/Magick++/lib/Magick++",
                     ],
                     'cflags': [
-                        "-Wno-cast-function-type"
+                        "-Wno-cast-function-type",
+                        "-Ldeps_image_magick/MagickWand/.libs",
+                        "-Ldeps_image_magick/MagickCore/.libs",
+                        "-Ldeps_image_magick/Magick++/lib/.libs",
+                        "-lMagick++-7.Q16HDRI",
+                        "-lMagickWand-7.Q16HDRI",
+                        "-lMagickCore-7.Q16HDRI"
                     ],
                     'cflags!': [
                         "-fno-exceptions"
@@ -261,10 +276,32 @@
             "copies": [
                 {
                     "files": [ 
-                        "<(PRODUCT_DIR)/<(module_name).node"
+                        "<(PRODUCT_DIR)/<(module_name).node", 
                     ],
                     "destination": "<(DIR_NAPI_OUTPUT)"
                 }
+            ],
+            "conditions": [
+                ['OS=="linux"', { 
+                    "actions": [
+                        {
+                            "inputs": [    
+                                "deps_image_magick/MagickWand/.libs/libMagickWand-7.Q16HDRI.so",
+                                "deps_image_magick/MagickCore/.libs/libMagickCore-7.Q16HDRI.so", 
+                                "deps_image_magick/Magick++/lib/.libs/libMagick++-7.Q16HDRI.so"   
+                            ],
+                            "outputs": [
+                                "<(DIR_NAPI_OUTPUT)/libMagickWand-7.Q16HDRI.so",
+                                "<(DIR_NAPI_OUTPUT)/libMagickCore-7.Q16HDRI.so",
+                                "<(DIR_NAPI_OUTPUT)/libMagick++-7.Q16HDRI.so"
+                            ],
+                            "action_name": "Copy Libs ImageMagick",
+                            "action": [
+                                "node", "scripts/copyLinuxImageMagick.js", "<(DIR_NAPI_OUTPUT)"
+                            ]
+                        }
+                    ] 
+                }]
             ]
         }
     ]
