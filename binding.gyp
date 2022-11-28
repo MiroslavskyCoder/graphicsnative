@@ -10,8 +10,7 @@
         }],
         ['OS=="linux"', {
             "targets": [
-                {
-                    
+                { 
                     "target_name": "BuildImageMagick",
                     "type": "none",
                     "actions": [
@@ -266,24 +265,6 @@
                     ],
                     "destination": "<(DIR_NAPI_OUTPUT)"
                 }
-            ],
-            "conditions": [ 
-                ['OS=="win"', {
-                    "actions": [
-                        {
-                            "action_name": "CopyRelease",
-                            "inputs": [
-                                "scripts/applocal.ps1"
-                            ],
-                            "outputs": [
-                                "<(DIR_NAPI_OUTPUT)/<(module_name).node"
-                            ],
-                            "action": [
-                                "powershell -ExecutionPolicy Bypass -noprofile -File \"../scripts/applocal.ps1\" \"../<(DIR_NAPI_OUTPUT)/<(module_name).node\" \"<(IMAGEMAGICK_ROOT)\""
-                            ]
-                        }
-                    ]
-                }]
             ]
         }
     ]
