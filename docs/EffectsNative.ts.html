@@ -140,13 +140,14 @@ import { Pos } from "./util/Pos";
 import { Geometry } from "./util/Geometry";
 import { Color } from "./util/Color"; 
 
+const dirnameNative = import.meta.url; 
+
 export function createRequire() {
-    return Module.createRequire(path.dirname(import.meta.url));
-}
-  
-const requireNative = createRequire();
- 
-const binding = requireNative("./napi/GraphicsNative.node"); 
+    return Module.createRequire(path.dirname(dirnameNative));
+} 
+
+const requireNative = createRequire(); 
+const binding = requireNative("./napi/GraphicsNative.node");
 
 /**
  * @class
@@ -1009,7 +1010,7 @@ export class EffectsNative {
      * @return {void}
      */
     fontPointsize(size: number): void {
-        this._image.fontPointsize(size);
+        this._image.fontPointSize(size);
     }
     /**
      * 
