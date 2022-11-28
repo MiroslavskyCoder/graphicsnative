@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/MiroslavskyCoder/graphicsnative.svg?branch=main)](https://app.travis-ci.com/MiroslavskyCoder/graphicsnative)
+
 ### @bymiroslavsky/graphicsnative 
 
 ### ImageMagick 
@@ -28,6 +30,7 @@ ____
 npm install --build-from-source
 npm install --save @bymiroslavsky/graphicsnative
 ```
+
 * YARN
 ```sh
 yarn add @bymiroslavsky/graphicsnative
