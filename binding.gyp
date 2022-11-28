@@ -5,7 +5,7 @@
     "conditions": [
         ['OS=="win"', {
             "variables": { 
-                "MAGICK_VISUAL_ROOT": "<!(node ./scripts/pathImageMagick.js)\\VisualMagick"
+                "IMAGEMAGICK_ROOT": "<!(node ./scripts/pathImageMagick.js)"
             }
         }],
         ['OS=="linux"', {
@@ -18,23 +18,21 @@
                         {
                             "action_name": "ImageMagick",
                             "action": [
-                                "git",
-                                "clone",
-                                "https://github.com/ImageMagick/ImageMagick.git image_magick_deps"
+                                "git clone https://github.com/ImageMagick/ImageMagick.git deps/ImageMagick" 
                             ]
                         }
                     ]
                 }
             ]
         }]
-    ],
+    ], 
     "targets": [
         {
             "target_name": "GraphicsNative",
             'include_dirs': [ 
                 'include',
                 "<!(node -e \"require('nan')\")",
-            ],
+            ], 
             "sources": [ 
                 "source/binding.cc",
                 "source/EffectsNative.cc",
@@ -208,20 +206,32 @@
                 "source/methods/WriteFrames.cc",
                 "source/methods/Zoom.cc"
             ], 
-            "defines": [
-                "MAGICKCORE_HDRI_ENABLE=1",
-                "MAGICKCORE_QUANTUM_DEPTH=16"
-            ],
             "conditions": [
                 ['OS=="win"', {
                     "libraries": [
-                        '<(MAGICK_VISUAL_ROOT)/lib/*.lib',
+                        '<(IMAGEMAGICK_ROOT)/lib/*.lib'
                     ],
                     "include_dirs": [
-                        "<(MAGICK_VISUAL_ROOT)/../ImageMagick/Magick++/lib", 
-                        "<(MAGICK_VISUAL_ROOT)/../ImageMagick",
-                    ]
-                }],
+                        "<(IMAGEMAGICK_ROOT)/include"
+                    ], 
+                    "msvs_settings": {
+                        "VCCLCompilerTool": {
+                            "AdditionalOptions": [
+                                "/EHsc" 
+                            ] 
+                        }
+                    },
+                    "configurations": {
+                        "Debug_x64": {
+                            "inherit_from": ["Debug"],
+                            "msvs_configuration_platform": "x64" 
+                        },
+                        "Release_x64": {
+                            "inherit_from": ["Release"],
+                            "msvs_configuration_platform": "x64"
+                        },
+                    } 
+                }], 
                 ['OS=="linux"', {
                     'libraries': [
                         '<!@(pkg-config Magick++ --libs)'
@@ -269,7 +279,7 @@
                                 "<(DIR_NAPI_OUTPUT)/<(module_name).node"
                             ],
                             "action": [
-                                "powershell -ExecutionPolicy Bypass -noprofile -File \"../scripts/applocal.ps1\" \"../<(DIR_NAPI_OUTPUT)/<(module_name).node\" \"<(MAGICK_VISUAL_ROOT)/bin\""
+                                "powershell -ExecutionPolicy Bypass -noprofile -File \"../scripts/applocal.ps1\" \"../<(DIR_NAPI_OUTPUT)/<(module_name).node\" \"<(IMAGEMAGICK_ROOT)\""
                             ]
                         }
                     ]
