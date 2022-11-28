@@ -192,7 +192,6 @@ NAN_METHOD(EffectsNative::New) {
     if (!info.IsConstructCall()) {
         return Nan::ThrowTypeError("Class constructors cannot be invoked without 'new'");
     } 
-    
     EffectsNative* kEffectNative = new EffectsNative;
     
     if (info.Length() == 1) {
