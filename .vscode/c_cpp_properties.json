@@ -20,7 +20,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "include",
-                "/usr/local/include/ImageMagick-7"
+                "deps_image_magick",
+                "deps_image_magick/Magick++/lib",
+                "deps_image_magick/Magick++/lib/Magick++"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
