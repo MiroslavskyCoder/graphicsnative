@@ -915,7 +915,7 @@ export class EffectsNative {
      * @return {void}
      */
     fontPointsize(size: number): void {
-        this._image.fontPointsize(size);
+        this._image.fontPointSize(size);
     }
     /**
      * 
