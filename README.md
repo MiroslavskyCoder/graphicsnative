@@ -4,6 +4,14 @@
 ### ImageMagick 
  
 1. [Windows](https://imagemagick.org/script/download.php) 
+
+## Install dependencies for ImageMagick
+
+```sh
+sudo apt update
+sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+```
+
 2. [Linux](https://imagemagick.org/script/install-source.php) 
 
 ____
